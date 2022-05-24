@@ -48,7 +48,7 @@ class Bricks():
         self.speed = speed
         self.gapHeight = Height/4
         self.gaplocker = random.randint(Height*0.3, Height*0.6)
-         
+
     #====TWO DIFFERENT BRICKS WITHOUT GAP
     #===============================================
 
@@ -76,7 +76,7 @@ class Pird():
         self.height = height
         self.speed = speed
         self.jumpVar = -16
-        
+
 
     def drawPird(self):
         self.body=pygame.draw.ellipse(self.where, self.colour, [self.left, self.top, self.width, self.height])
@@ -107,7 +107,7 @@ class Pird():
 
         #=========================================
         self.top += self.speed
-        
+
 
     def jumpUp(self):
         # stupid Jump
@@ -142,7 +142,11 @@ pird = Pird(screen,RED, Width*0.3, Height/2-partikel*2, partikel*4, partikel*3, 
 # PLEEEEASE STAND STILL
 
 topBrickHeight = random.randint(Height*0.3, Height*0.6)
+
+startBrick = Bricks(screen, RED , Width + partikel , 0, partikel*2, Height*0.4, brickspeed)
+
 startBrick = Bricks(screen, YELLOW, Width + partikel , 0, partikel*2, Height*0.4, brickspeed)
+
 startBrick.height = topBrickHeight
 
 bricks.append(startBrick)
@@ -154,10 +158,12 @@ while go == "j":
     screen.fill(BLACK)
 
     # ====== suicide pird
-    
+
+
     pird.drawPird()
     pird.fallDown()
-    
+
+
     # ============================
     # ====== the walking bricks
 
@@ -169,9 +175,7 @@ while go == "j":
             topBrickHeight = random.randint(Height*0.3, Height*0.6)
             bricks.append(Bricks(screen, YELLOW, Width + partikel , 0, partikel*2, startBrick.height, brickspeed))
             bricks[counter].height = topBrickHeight
-            
-            
-            
+
 
 
         # Prepare To Die 
@@ -191,10 +195,15 @@ while go == "j":
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 pird.jumpUp()
-    
 
-    
+
+
+
     pygame.display.flip()
     clock.tick(fps)
 
 pygame.quit()
+
+    
+
+    
