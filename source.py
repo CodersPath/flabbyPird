@@ -142,7 +142,11 @@ pird = Pird(screen,RED, Width*0.3, Height/2-partikel*2, partikel*4, partikel*3, 
 # PLEEEEASE STAND STILL
 
 topBrickHeight = random.randint(Height*0.3, Height*0.6)
+
 startBrick = Bricks(screen, RED , Width + partikel , 0, partikel*2, Height*0.4, brickspeed)
+
+startBrick = Bricks(screen, YELLOW, Width + partikel , 0, partikel*2, Height*0.4, brickspeed)
+
 startBrick.height = topBrickHeight
 
 bricks.append(startBrick)
@@ -155,8 +159,10 @@ while go == "j":
 
     # ====== suicide pird
 
+
     pird.drawPird()
     pird.fallDown()
+
 
     # ============================
     # ====== the walking bricks
@@ -169,8 +175,6 @@ while go == "j":
             topBrickHeight = random.randint(Height*0.3, Height*0.6)
             bricks.append(Bricks(screen, YELLOW, Width + partikel , 0, partikel*2, startBrick.height, brickspeed))
             bricks[counter].height = topBrickHeight
-
-
 
 
 
@@ -194,7 +198,12 @@ while go == "j":
 
 
 
+
     pygame.display.flip()
     clock.tick(fps)
 
 pygame.quit()
+
+    
+
+    
