@@ -136,7 +136,11 @@ pygame.display.set_caption("FlabbyPird")
 border = Bottom(screen, GREEN, 0, borderheight, Width, partikel*2.5)
 pird = Pird(screen,RED, Width*0.3, Height/2-partikel*2, partikel*4, partikel*3, downspeed)
 topBrickHeight = random.randint(Height*0.3, Height*0.6)
-startBrick = Bricks(screen, YELLOW , Width + partikel , 0, partikel*2, Height*0.4, brickspeed)
+
+
+startBrick = Bricks(screen, YELLOW, Width + partikel , 0, partikel*2, Height*0.4, brickspeed)
+
+
 startBrick.height = topBrickHeight
 
 bricks.append(startBrick)
@@ -148,10 +152,11 @@ while go == "j":
     screen.fill(BLACK)
 
     # ====== suicide pird
+
     border.draw()
     pird.drawPird()
     pird.fallDown()
-    
+
     # ============================
     # ====== the walking bricks
     for i in bricks:
@@ -162,7 +167,7 @@ while go == "j":
             topBrickHeight = random.randint(Height*0.2, Height*0.8)
             bricks.append(Bricks(screen, YELLOW, Width + partikel , 0, partikel*2, startBrick.height, brickspeed))
             bricks[counter].height = topBrickHeight
-            
+
 
         # Prepare To Die 
         #================================
@@ -188,9 +193,12 @@ while go == "j":
     text_rect.center = (Width*0.75, Height * 0.15)
     screen.blit(surface, text_rect)
 
+
     pygame.display.flip()
     clock.tick(fps)
 
 
 
+
 pygame.quit()
+
